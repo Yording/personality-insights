@@ -23,4 +23,8 @@ app.get('/', (req, res) => {
     res.status(200).send({message: 'Bienvenido a la api de prueba para personality insights'})
 })
 
+app.get('/personalityAnalysis', (req, res) => {
+    res.status(200).send({message: 'Logueo sastisfactorio'})
+})
+
 module.exports = app;
