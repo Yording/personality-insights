@@ -5,18 +5,18 @@ var PersonalyInsightsV3 = require('watson-developer-cloud/personality-insights/v
 var User = require('../models/user')
 
 module.exports = {
-    // getArticle: (req, res) => {
-    //     var articleId = req.params.id
-    //     Article.findById(articleId, (err, article) => {
-    //         if(err)
-    //             return res.status(500).send({message: `Error al realizar la petición: ${err}`})
+    getUser: (req, res) => {
+        var userId = req.params.id
+        User.findById(userId, (err, user) => {
+            if(err)
+                return res.status(500).send({message: `Error al realizar la petición: ${err}`})
 
-    //         if(!article)
-    //             return status(404).send({message: "El articulo no existe"})
+            if(!user)
+                return status(404).send({message: "El usuario no existe"})
 
-    //         return res.status(200).send({article: article})
-    //     })
-    // },
+            return res.status(200).send({user: user})
+        })
+    },
     // getArticles: (req, res) => {
     //     Article.find({}, (err, articles) => {
     //         if(err)
@@ -100,16 +100,15 @@ module.exports = {
         }
         personalityInsights.profile(params, function(error, response) {
             if(error)
-                console.log('Error:',error)
+                return res.status(500).send({message: `Error al realizar la petición: ${error}`})
             else
-            console.log(req.params.id)
                 User.update({_id: req.params.id},{'analysis':response},function(err,doc){
                     if(err)
                         console.log(err)
                     else
-                        console.log("Analisis guardado")
+                        res.status(200).send({message: "Analisis creado sastisfactoriamente"})
                 })
-                res.status(200).send(response)
+                
         })
     }
 }

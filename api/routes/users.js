@@ -9,7 +9,7 @@ router
     // .post('/', usersCtrl.createArticle)
     // .delete('/:id', usersCtrl.deleteArticle)
     // .put(':/id', usersCtrl.updateArticle)
-    // .get('/:id', usersCtrl.getArticle)
+    .get('/profile/:id', usersCtrl.getUser)
     .get('/:id',usersCtrl.createAnalysis)
 
 module.exports = router
