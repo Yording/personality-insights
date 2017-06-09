@@ -4,7 +4,8 @@ module.exports = {
     port: Number(process.env.PORT || 3000),
     db: {
         name: "prototype-personality-insights",
-        url: process.env.MONGODB || "mongodb://localhost/prototype-personality-insights"
+        url: process.env.MONGODB || "mongodb://yording9:proyecto2017@ds033477.mlab.com:33477/personality-insights"
+        // url: process.env.MONGODB || "mongodb://localhost/prototype-personality-insights"
     },
 
     facebook: {

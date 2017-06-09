@@ -15,7 +15,6 @@ module.exports = {
         function(accessToken, refreshToken, profile, done) {
             // encuentra al usuario en la base de datos basada en su ID de facebook
             process.nextTick(function(){
-                console.log(profile)
                 User.findOne({
                     'facebook.id': profile.id
                 })
