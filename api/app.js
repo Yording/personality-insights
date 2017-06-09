@@ -3,6 +3,8 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 var morgan = require('morgan')
+var passport = require('passport')
+var session = require('express-session')
 var routes = require('./routes')
 
 var app = express()
@@ -13,6 +15,11 @@ var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 }
+
+app.use(session({ secret: 'proyecto2017' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 app.use(allowCrossDomain);
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))

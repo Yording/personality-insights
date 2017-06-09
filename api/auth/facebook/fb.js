@@ -6,9 +6,9 @@ var FacebookStrategy = require('passport-facebook').Strategy
 module.exports = {
     setup: function (User, config){
         passport.use('facebook', new FacebookStrategy({
-            clientID: config.facebook.clientID,
-            clientSecret: config.facebook.clientSecret,
-            callbackURL: config.facebook.callbackURL,
+            clientID: config.clientID,
+            clientSecret: config.clientSecret,
+            callbackURL: config.callbackURL,
             // profileFields: ['id', 'displayName', 'link', 'about_me', 'photos', 'email']
         },
         // facebook enviara de regreso los tokens y perfil

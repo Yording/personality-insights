@@ -21,4 +21,4 @@ router
     session: false
   }));
 
-module.exports = router;
+module.exports = router
