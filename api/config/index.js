@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = {
-    port: process.env.PORT || 3000,
+    port: Number(process.env.PORT || 3000),
     db: {
         name: "prototype-personality-insights",
         url: process.env.MONGODB || "mongodb://localhost/prototype-personality-insights"
