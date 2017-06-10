@@ -16,9 +16,9 @@ var allowCrossDomain = function(req, res, next) {
     next();
 }
 
-app.use(session({ secret: 'proyecto2017' })); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
+// app.use(session({ secret: 'proyecto2017' })); // session secret
+// app.use(passport.initialize());
+// app.use(passport.session()); // persistent login sessions
 
 app.use(allowCrossDomain);
 app.use(bodyParser.json())

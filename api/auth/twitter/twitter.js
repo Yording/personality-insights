@@ -14,7 +14,7 @@ module.exports = {
         function(token, tokenSecret, profile, done){
             process.nextTick(function(){
                 User.findOne({
-                    'twitter.id_str': profile.id_str
+                    'twitter.id_str': profile.id.toString()
                 })
                 .then(function(err, user){
                     if(err)
